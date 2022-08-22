@@ -1,0 +1,272 @@
+/* Variables */
+:root {
+  --main-text-color : rgb(0, 0, 0);
+  /* --main-bg-color : #fff; */
+  /* --main-font-size : 16px; */
+  /* --main-font-weight : 400; */
+  /* --main-line-height : 1.5; */
+}
+
+@font-face {
+  font-family: 'Aboreto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/aboreto-v2-latin-regular.woff2') format('woff2'),
+       url('../fonts/aboreto-v2-latin-regular.woff') format('woff'); 
+}
+
+/* General */
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  height: 100%;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Aboreto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background-image: url("../images/bodyimg.avif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-attachment: fixed;
+  /* line-height: var(--main-line-height); */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Sticky-Footer */
+.site-main {
+  flex-grow: 1;
+}
+.site-header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #f2f2f2;
+  z-index: 3;
+}
+.site-header__wrapper {
+  padding: 30px 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-header__logo {
+  
+}
+
+.site-header__img {
+  color: red;
+  font-size: 30px;
+}
+.site-header__navbar {
+}
+.site-header__list {
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+}
+.site-header__item {
+  list-style-type: none;
+
+}
+
+.site-header__item:not(:last-child) {
+  margin-right: 30px;
+  
+}
+.site-header__link {
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--main-text-color);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+}
+
+.site-header__link::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--clr);
+  overflow: hidden;
+  width: 0%;
+  transition: 1s;
+  border-right: 3px solid var(--clr);
+  -webkit-text-stroke: 1px var(--clr);
+
+
+}
+
+.site-header__link:hover::before {
+  width: 100%;
+  filter: drop-shadow(0 0 25px var(--clr));
+
+}
+
+@media only screen and (max-width:1024px) {
+  .site-header__link {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  
+  .site-header__link::before {
+    display: none;
+  }
+  
+  .site-header__link:hover::before {
+    width: 0%;
+  
+  }
+}
+
+@media only screen and (max-width:770px) {
+
+  .site-header__list {
+    display: none;
+  }
+
+}
+
+.owl-carousel {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1380px;
+  height: 100vh;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide-1 {
+  background-image: url("../images/dubai.avif");
+}
+
+.slide-2 {
+  background-image: url("./bg-2.jpg");
+}
+
+.slide-3 {
+  background-image: url("./bg-3.jpg");
+}
+
+.slide-content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: aliceblue;
+  padding: 0 20%;
+}
+
+.slide__title{
+  font-size: 45px;
+  text-transform: uppercase;
+}
+
+.slide__text {
+  font-size: 30px;
+  text-transform: lowercase;
+} 
+
+button {
+  padding: 12px 28px;
+  background-color: green;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  color: aliceblue;
+  font-weight: bolder;
+}
+
+.owl-dots {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 1%;
+}
+
+.owl-dots span {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.owl-dots button {
+  border: none !important;
+  outline: none !important;
+}
+
+.owl-nav button {
+  border: none !important;
+  outline: none !important;
+}
+
+.owl-prev, .owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: aliceblue !important;
+  font-size: 60px !important;
+  font-weight: bolder !important;
+  background: none !important;
+}
+
+.owl-prev {
+  left: 1%;
+}
+
+.owl-next {
+  right: 1%;
+}
