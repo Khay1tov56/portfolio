@@ -290,3 +290,8 @@ h2 {
     color: red;
   }
 }
+
+form {
+  position: absolute;
+  bottom: 0;
+}
