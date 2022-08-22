@@ -281,11 +281,12 @@ h2 {
 
 @keyframes animate {
   0% {
-    transition: all 1s;
+    transition: all 1s ease-in-out inherit;
     color: bisque;
   }
 
   100% {
+    transition: all 1s ease-in-out inherit;
     transform: translateY(10px);
     color: red;
   }
