@@ -270,3 +270,26 @@ button {
 .owl-next {
   right: 1%;
 }
+
+.site-main {
+  display: none;
+}
+
+h2 {
+  font-size: 100px;
+  text-align: center;
+  margin-top: 300px;
+  animation: animate 1s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0% {
+    transition: all 1s;
+    color: bisque;
+  }
+
+  100% {
+    transform: translateY(10px);
+    color: red;
+  }
+}
