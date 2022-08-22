@@ -75,6 +75,7 @@ body {
 }
 .site-header{
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   background-color: #f2f2f2;
@@ -86,16 +87,12 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.site-header__logo {
-  
-}
 
 .site-header__img {
   color: red;
   font-size: 30px;
 }
-.site-header__navbar {
-}
+
 .site-header__list {
   padding-left: 0;
   margin: 0;
