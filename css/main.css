@@ -582,5 +582,5 @@ body {
 
 .textarea {
   margin: 40px 0;
-  resize: none;
+  resize: none !important;
 }
