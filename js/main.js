@@ -5,7 +5,7 @@ $(document).ready(function () {
         items: 1,
         loop: true,
         nav: true,
-        dots: true,
+        dots: false,
         autoplay: true,
         autoplaySpeed: 1050,
         smartSpeed: 1500,

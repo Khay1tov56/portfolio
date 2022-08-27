@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: #000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.login__wrapper {
+    position: relative;
+    width: 450px;
+    min-height: 300px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.login__wrapper::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+
+}
+
+.login__wrapper::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #ff0047, #6eff00);
+    pointer-events: none;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        filter: blur(60px) hue-rotate(0deg);
+    }
+
+    100% {
+        filter: blur(60px) hue-rotate(360deg);
+    }
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.form h2 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+.form .inputBox {
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+.form .inputBox input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px 0;
+
+    
+}
+
+::placeholder {
+    color: #eee;
+}
+
+.form .inputBox input[type="submit"]
+{
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-weight: 900;
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.form p {
+    color: #eee;
+
+}
+
+.form a {
+    color: #fff;
+}
+
+.span {
+    display: block;
+    position: absolute;
+    left: 130px;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    margin: 10px 0;
+
+}
+
+.span::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #03a9f4;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scale(0);
+}
+
+.span:hover::before {
+    transition: transform 0.5s;
+    transform-origin: top left;
+    transform: scale(1);
+
+}
+
+.span::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: top left;
+    transform: scale(1);
+}
+
+.span:hover::after {
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scale(0);
+}
+
+.textarea {
+    margin: 40px 0;
+}

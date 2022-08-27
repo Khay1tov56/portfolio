@@ -1,10 +1,6 @@
-/* Variables */
-:root {
+/* :root {
   --main-text-color : rgb(0, 0, 0);
-  /* --main-bg-color : #fff; */
-  /* --main-font-size : 16px; */
-  /* --main-font-weight : 400; */
-  /* --main-line-height : 1.5; */
+ 
 }
 
 @font-face {
@@ -16,14 +12,15 @@
        url('../fonts/aboreto-v2-latin-regular.woff') format('woff'); 
 }
 
-/* General */
 * {
-  box-sizing: border-box;
+  box-sizing:content-box;
   text-decoration: none;
 }
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-align: calc(50% + 50px);
 }
 
 img {
@@ -31,22 +28,21 @@ img {
   height: auto;
 }
 
-body {
+ body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   font-family: "Aboreto", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  background-image: url("../images/bodyimg.avif");
+  background-color: #000;
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  background-size: 100%;
-  background-attachment: fixed;
-  /* line-height: var(--main-line-height); */
-}
+} 
 
 .visually-hidden {
   position: absolute;
@@ -61,7 +57,7 @@ body {
   overflow: hidden;
 }
 
-/* Container */
+
 .container {
   width: 100%;
   max-width: 1300px;
@@ -69,12 +65,11 @@ body {
   padding: 0 20px;
 }
 
-/* Sticky-Footer */
 .site-main {
   flex-grow: 1;
 }
 .site-header{
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -183,50 +178,28 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 600px;
+
 }
 
-.slide-1 {
-  background-image: url("../images/dubai.avif");
-}
-
-.slide-2 {
-  background-image: url("./bg-2.jpg");
-}
-
-.slide-3 {
-  background-image: url("./bg-3.jpg");
-}
 
 .slide-content {
   text-align: center;
+  left: 0;
+  right: 0;
+  top: 45%;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   color: aliceblue;
-  padding: 0 20%;
 }
 
 .slide__title{
-  font-size: 45px;
-  text-transform: uppercase;
+  font-size: 30px;
 }
 
 .slide__text {
   font-size: 30px;
-  text-transform: lowercase;
 } 
 
-button {
-  padding: 12px 28px;
-  background-color: green;
-  border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  color: aliceblue;
-  font-weight: bolder;
-}
 
 .owl-dots {
   width: 100%;
@@ -238,11 +211,6 @@ button {
 .owl-dots span {
   width: 20px !important;
   height: 20px !important;
-}
-
-.owl-dots button {
-  border: none !important;
-  outline: none !important;
 }
 
 .owl-nav button {
@@ -268,27 +236,351 @@ button {
   right: 1%;
 }
 
+.hero__input {
+  padding: 10px;
+}
+
+.site-header {
+  display: none;
+}
+
 .site-main {
   display: none;
 }
 
-h2 {
-  font-size: 100px;
-  text-align: center;
-  margin-top: 300px;
-  animation: animate 1s ease-in-out infinite;
+
+.login__wrapper {
+  position: relative;
+  width: 450px;
+  min-height: 300px;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.login__wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+
+}
+
+.login__wrapper::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #ff0047, #6eff00);
+  pointer-events: none;
+  animation: animate 10s linear infinite;
 }
 
 @keyframes animate {
   0% {
-    transition: all 1s ease-in-out inherit;
-    color: bisque;
+      filter: blur(60px) hue-rotate(0deg);
   }
 
   100% {
-    transition: all 1s ease-in-out inherit;
-    transform: translateY(10px);
-    color: red;
+      filter: blur(60px) hue-rotate(360deg);
   }
 }
 
+.form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.form h2 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.form .inputBox {
+  width: 100%;
+  margin-top: 20px;
+
+}
+
+.form .inputBox input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+  padding: 5px 0;
+
+  
+}
+
+::placeholder {
+  color: #eee;
+}
+
+.form .inputBox input[type="submit"]
+{
+  background-color: #fff;
+  color: #000;
+  border: none;
+  font-weight: 900;
+  max-width: 100px;
+  cursor: pointer;
+}
+
+.form p {
+  color: #eee;
+
+}
+
+.form a {
+  color: #fff;
+}
+
+.span {
+  display: block;
+  position: absolute;
+  left: 130px;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 10px 0;
+
+}
+
+.span::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #03a9f4;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: bottom right;
+  transform: scale(0);
+}
+
+.span:hover::before {
+  transition: transform 0.5s;
+  transform-origin: top left;
+  transform: scale(1);
+
+}
+
+.span::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: top left;
+  transform: scale(1);
+}
+
+.span:hover::after {
+  transition: transform 0.5s;
+  transform-origin: bottom right;
+  transform: scale(0);
+}
+
+.textarea {
+  margin: 40px 0;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #000;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.login__wrapper {
+  position: relative;
+  width: 450px;
+  min-height: 300px;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.login__wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+
+}
+
+.login__wrapper::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #ff0047, #6eff00);
+  pointer-events: none;
+  animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+      filter: blur(60px) hue-rotate(0deg);
+  }
+
+  100% {
+      filter: blur(60px) hue-rotate(360deg);
+  }
+}
+
+.form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.form h2 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.form .inputBox {
+  width: 100%;
+  margin-top: 20px;
+
+}
+
+.form .inputBox input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+  padding: 5px 0;
+
+  
+}
+
+::placeholder {
+  color: #eee;
+}
+
+.form .inputBox input[type="submit"]
+{
+  background-color: #fff;
+  color: #000;
+  border: none;
+  font-weight: 900;
+  max-width: 100px;
+  cursor: pointer;
+}
+
+.form p {
+  color: #eee;
+
+}
+
+.form a {
+  color: #fff;
+}
+
+.span {
+  display: block;
+  position: absolute;
+  left: 130px;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 10px 0;
+
+}
+
+.span::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #03a9f4;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: bottom right;
+  transform: scale(0);
+}
+
+.span:hover::before {
+  transition: transform 0.5s;
+  transform-origin: top left;
+  transform: scale(1);
+
+}
+
+.span::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: top left;
+  transform: scale(1);
+}
+
+.span:hover::after {
+  transition: transform 0.5s;
+  transform-origin: bottom right;
+  transform: scale(0);
+}
+
+.textarea {
+  margin: 40px 0;
+  resize: none;
+}
