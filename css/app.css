@@ -100,8 +100,7 @@ img {
     font-size: 3.2rem;
     color: var(--color-light);
     font-weight: var(--font-black); }
-    @media only screen and (max-width: 900px) {
-      .section__title {
+    @media only screen and (max-width: 900px) {      .section__title {
         font-size: 2.6rem; } }
     @media only screen and (max-width: 600px) {
       .section__title {
