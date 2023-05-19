@@ -18,6 +18,13 @@
   --font-bold: 800;
   --font-black: 900; }
 
+  h1 {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 50px;
+    text-align: center;
+  }
+
 * {
   margin: 0;
   padding: 0;
